@@ -1,0 +1,10 @@
+run:
+  type: docker
+env: []
+resources:
+  cpu: 0.5
+  mem: 0.5
+expose:
+  - name: tcp
+    port: 4730
+    bind: 4730

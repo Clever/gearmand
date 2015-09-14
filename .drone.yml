@@ -1,0 +1,23 @@
+image: bradrydzewski/base
+notify:
+  email:
+    hipchat:
+      on_failure: true
+      on_started: true
+      on_success: true
+      room: Clever-Dev-CI
+      token: $$hipchat_token
+    recipients:
+    - drone@clever.com
+publish:
+  docker:
+    docker_host: $$docker_server
+    email: $$docker_email
+    image_name: clever/gearmand
+    password: $$docker_password
+    registry_login: true
+    tags:
+    - $(git rev-parse --short HEAD)
+    username: $$docker_username
+    when:
+      branch: master
