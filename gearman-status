@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# get the status of gearman
+
+
+echo " Worker Name                        Queued Jobs     Active Jobs  Running Workers"
+echo " -------------------------------------------------------------------------------"
+
+echo "status" | nc -q 1 localhost 4730 | sort | grep -v "^\." | awk '{
+  state_clr="\033[0;32m"; # default=workers ready to accept jobs, no current jobs (green)
+  if ($4 < 1) { # no running workers
+   state_clr="\033[1;30m"; # grey
+  };
+  if ($3 > 0) { # active jobs running
+   state_clr="\033[0;34m"; # blue
+  };
+  if ($2 > $4) { # more jobs are queued up than there are workers
+    state_clr="\033[1;31m"; # bright red
+  };
+  printf("%s %-30s  %14d  %14d   %14d\033[0m\n", state_clr, $1,($2-$3),$3,$4)}'
+
