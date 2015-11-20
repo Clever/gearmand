@@ -13,8 +13,6 @@ publish:
   catapult:
     url: $$catapult_url
     application: "gearmand"
-    when:
-      branch: master
   docker:
     docker_host: $$docker_server
     email: $$docker_email
