@@ -9,3 +9,5 @@ expose:
     port: 4730
     bind: 4730
     proto: tcp
+    health_check:
+      type: tcp
