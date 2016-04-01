@@ -8,3 +8,4 @@ expose:
   - name: tcp
     port: 4730
     bind: 4730
+    proto: tcp
