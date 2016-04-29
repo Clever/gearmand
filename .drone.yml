@@ -23,4 +23,4 @@ publish:
     - $(git rev-parse --short HEAD)
     username: $$docker_username
     when:
-      branch: test-keepalive
+      branch: more-keep-alive

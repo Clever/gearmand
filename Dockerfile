@@ -1,6 +1,6 @@
 FROM library/ubuntu:trusty
 
-ENTRYPOINT ["gearmand", "--keepalive", "--keepalive-idle=240"]
+ENTRYPOINT ["gearmand", "--keepalive", "--keepalive-idle=240", "--keepalive-interval=60"]
 EXPOSE 4730
 
 RUN apt-get update \
