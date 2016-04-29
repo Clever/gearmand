@@ -10,4 +10,5 @@ RUN apt-get update \
   && cd gearmand-1.1.12 \
   && ./configure && make && make install \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists
+  && rm -rf /var/lib/apt/lists \
+  && cd ../ && rm -rf ./gearmand-1.1.12*
