@@ -11,3 +11,4 @@ expose:
     proto: tcp
     health_check:
       type: tcp
+team: eng-infra
